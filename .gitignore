@@ -1,0 +1,10 @@
+# Electron edition build output (large binaries, not meant for git)
+_electron_download/
+electron-version/
+electron-app/app/
+electron-app/node_modules/
+electron-app/dist/
+
+# OS files
+.DS_Store
+Thumbs.db

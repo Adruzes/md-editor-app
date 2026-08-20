@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MDノート - Markdownエディタ</title>
+<link rel="stylesheet" href="libs/codemirror/codemirror.css">
+<link rel="stylesheet" href="libs/codemirror/theme/dracula.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-dark">
+<div id="app">
+  <header id="toolbar">
+    <div class="toolbar-left">
+      <span class="app-title">📝 MDノート</span>
+    </div>
+    <div class="toolbar-actions">
+      <button id="btn-open-folder" title="フォルダを開く">📁 フォルダを開く</button>
+      <button id="btn-open-file" title="ファイルを開く (Ctrl+O)">📄 ファイルを開く</button>
+      <button id="btn-new-file" title="新規ファイル">＋ 新規</button>
+      <button id="btn-save" title="保存 (Ctrl+S)">💾 保存</button>
+      <button id="btn-save-as" title="名前を付けて保存">名前を付けて保存</button>
+      <button id="btn-export-pdf" title="PDFとして保存">📕 PDF出力</button>
+      <div class="view-toggle" id="view-toggle">
+        <button data-view="edit" class="view-btn active">編集</button>
+        <button data-view="split" class="view-btn">分割</button>
+        <button data-view="preview" class="view-btn">プレビュー</button>
+      </div>
+      <button id="btn-theme-toggle" title="ダーク/ライト切替">🌙</button>
+    </div>
+  </header>
+
+  <div id="body">
+    <aside id="sidebar">
+      <div id="sidebar-header">
+        <span id="folder-name">フォルダ未選択</span>
+      </div>
+      <div id="file-tree">
+        <p class="sidebar-hint">「📁 フォルダを開く」でMarkdownファイルの一覧を表示します。</p>
+      </div>
+    </aside>
+
+    <div id="main-col">
+      <div id="tabs"></div>
+      <main id="workspace" class="view-edit">
+        <div id="editor-pane"><textarea id="editor"></textarea></div>
+        <div id="preview-pane"><div id="preview-content" class="markdown-body"></div></div>
+      </main>
+    </div>
+  </div>
+
+  <footer id="statusbar">
+    <span id="status-file">未保存のファイル</span>
+    <span id="status-msg"></span>
+  </footer>
+</div>
+
+<input type="file" id="folder-input" webkitdirectory multiple hidden>
+<input type="file" id="file-input" accept=".md,.markdown,.txt" hidden>
+
+<script src="libs/codemirror/codemirror.js"></script>
+<script src="libs/codemirror/mode/markdown/markdown.js"></script>
+<script src="libs/codemirror/mode/xml/xml.js"></script>
+<script src="libs/codemirror/mode/css/css.js"></script>
+<script src="libs/codemirror/mode/javascript/javascript.js"></script>
+<script src="libs/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+<script src="libs/codemirror/mode/python/python.js"></script>
+<script src="libs/codemirror/mode/shell/shell.js"></script>
+<script src="libs/codemirror/mode/sql/sql.js"></script>
+<script src="libs/codemirror/mode/clike/clike.js"></script>
+<script src="libs/codemirror/mode/yaml/yaml.js"></script>
+<script src="libs/marked.min.js"></script>
+<script src="libs/purify.min.js"></script>
+<script src="libs/html2pdf.bundle.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
